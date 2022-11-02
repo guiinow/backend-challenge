@@ -6,16 +6,22 @@ import {
     UpdateDateColumn,
   } from 'typeorm';
   
-  @Entity('posts')
-  export class PostsEntity {
+  @Entity('trips')
+  export class TripsEntity {
     @PrimaryColumn({ generated: true })
     id: number;
   
     @Column()
-    content: string;
+    country: string;
   
     @Column()
-    title: string;
+    place: string;
+
+    @Column()
+    flagUrl: string;
+
+    @Column()
+    goal: string;
   
     @CreateDateColumn()
     createdAt: Date;

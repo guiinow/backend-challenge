@@ -1,0 +1,42 @@
+@host=http://localhost:3000
+###
+
+# @name Posts
+GET {{host}}/trips HTTP/1.1
+
+###
+
+# @name FetchPostByID
+GET {{host}}/trips/2 HTTP/1.1
+
+###
+
+# @name NewPost
+POST {{host}}/trips HTTP/1.1
+content-type: application/json
+
+{
+  "country": "Brasil",
+  "place": "Padre paraiso",
+  "flagUrl": "wikpedia.com/pp",
+  "goal": "Hello, world rust",
+  "createdAt": "2012-04-23T18:25:43.511Z",
+  "updatedAt": "2012-04-23T18:25:43.511Z"
+}
+###
+
+# @name UpdatePost
+PUT {{host}}/trips/4 HTTP/1.1
+content-type: application/json
+
+{
+  "place": "Catuji",
+  "goal": "Meta de ir viajar"
+}
+###
+
+# @name DeletePost
+DELETE {{host}}/trips/3 HTTP/1.1
+content-type: application/json
+
+###

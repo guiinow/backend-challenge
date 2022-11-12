@@ -3,19 +3,21 @@ import {
     CreateDateColumn,
     Entity,
     PrimaryColumn,
+    Unique,
     UpdateDateColumn,
   } from 'typeorm';
   
   @Entity('trips')
+  @Unique(['country', 'place'])
   export class TripsEntity {
     @PrimaryColumn({ generated: true })
     id: number;
   
-    @Column()
-    country: string;
+    @Column({name:'country'})
+    public country: string;
   
-    @Column()
-    place: string;
+    @Column({name:'place'})
+    public place: string;
 
     @Column()
     flagUrl: string;

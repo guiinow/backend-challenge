@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpCode, HttpException, HttpStatus, Injectable, Res } from '@nestjs/common';
 import { CreateTripDto } from './dto/create-trip.dto';
 import { UpdateTripDto } from './dto/update-trip.dto';
 import { Repository, Connection} from 'typeorm'
@@ -14,27 +14,40 @@ export class TripsService {
   }
 
   async create(createTripDto: CreateTripDto) {
-    // == creates a new entity instance ==
-    const newTrip = this._tripsRepository.create();
-  
-    // newTrip.id = createTripDto.id;
-    newTrip.country = createTripDto.country;
-    newTrip.place = createTripDto.place;
-    newTrip.flagUrl = createTripDto.flagUrl;
-    newTrip.goal = createTripDto.goal;
-    newTrip.createdAt = createTripDto.createdAt;
-    newTrip.updatedAt = createTripDto.updatedAt;
-  
-    // == saves the trip to db ==
-    await this._tripsRepository.save(newTrip);
-    return newTrip;
+
+      
+      // == creates a new entity instance ==
+      const newTrip = this._tripsRepository.create();
+    
+      // newTrip.id = createTripDto.id;
+      newTrip.country = createTripDto.country;
+      newTrip.place = createTripDto.place;
+      newTrip.flagUrl = createTripDto.flagUrl;
+      newTrip.goal = createTripDto.goal;
+      newTrip.createdAt = createTripDto.createdAt;
+      newTrip.updatedAt = createTripDto.updatedAt;
+    
+    try {
+
+      // == saves the trip to db ==
+      await this._tripsRepository.save(newTrip);
+      return newTrip;
+  } catch (QueryFailedError) {
+
+    throw new HttpException(
+      `Já existe uma meta para ${newTrip.place} no país ${newTrip.country}, com meta para ${newTrip.goal}.`,
+      HttpStatus.BAD_REQUEST,
+    )
+  }
+
   }
   
   async findAll() {
     // == returns all records if didn't specify any options ==
-    return await this._tripsRepository.find();
+   
+    return await this._tripsRepository.find({order: {goal: "ASC"}});
   }
-  
+
   async findOne(id: number) {
     return await this._tripsRepository.findOne({where: {id: id}});
   }
@@ -53,4 +66,10 @@ export class TripsService {
   async remove(id: number) {
     await this._tripsRepository.delete(id);
   }
+
 }
+
+  function errorHandler() {
+    return 'nao da pra adicionar duplicado';
+  }
+

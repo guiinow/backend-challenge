@@ -16,27 +16,27 @@ POST {{host}}/trips HTTP/1.1
 content-type: application/json
 
 {
-  "country": "Brasil",
-  "place": "Padre paraiso",
+  "country": "France",
+  "place": "Sao gonçalo",
   "flagUrl": "wikpedia.com/pp",
-  "goal": "Hello, world rust",
-  "createdAt": "2012-04-23T18:25:43.511Z",
-  "updatedAt": "2012-04-23T18:25:43.511Z"
+  "goal": "2014-10",
+  "createdAt": "2022-04",
+  "updatedAt": "2022-06"
 }
 ###
 
 # @name UpdatePost
-PATCH {{host}}/trips/9 HTTP/1.1
+PATCH {{host}}/trips/10 HTTP/1.1
 content-type: application/json
 
 {
   "place": "Catuji",
-  "goal": "Meta de ir viajar"
+  "goal": "2023-02"
 }
 ###
 
 # @name DeletePost
-DELETE {{host}}/trips/2 HTTP/1.1
+DELETE {{host}}/trips/8 HTTP/1.1
 content-type: application/json
 
 ###

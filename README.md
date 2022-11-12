@@ -12,6 +12,7 @@
 
 ## Execução da aplicação
 
+Com este repositório clonado na sua máquina, entre no diretório raíz. 
 
 Com o docker instalado na maquina, rode o seguinte comando para se conectar ao banco de dados: `sudo docker run -e POSTGRES_USER=guiinow -e POSTGRES_PASSWORD=123456 -p 5432:5432 -d postgres:14.5`
 

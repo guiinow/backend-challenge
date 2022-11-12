@@ -1,17 +1,18 @@
 @host=http://localhost:3000
 ###
 
-# @name Posts
+
+# @name Trips
 GET {{host}}/trips HTTP/1.1
 
 ###
 
-# @name FetchPostByID
+# @name FetchTripByID
 GET {{host}}/trips/6 HTTP/1.1
 
 ###
 
-# @name NewPost
+# @name NewTrip
 POST {{host}}/trips HTTP/1.1
 content-type: application/json
 
@@ -25,7 +26,7 @@ content-type: application/json
 }
 ###
 
-# @name UpdatePost
+# @name UpdateTrip
 PATCH {{host}}/trips/10 HTTP/1.1
 content-type: application/json
 
@@ -35,7 +36,7 @@ content-type: application/json
 }
 ###
 
-# @name DeletePost
+# @name DeleteTrip
 DELETE {{host}}/trips/9 HTTP/1.1
 content-type: application/json
 

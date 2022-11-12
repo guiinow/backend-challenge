@@ -16,9 +16,9 @@ POST {{host}}/trips HTTP/1.1
 content-type: application/json
 
 {
-  "country": "France",
-  "place": "Sao gonçalo",
-  "flagUrl": "wikpedia.com/pp",
+  "country": "França",
+  "place": "Paris",
+  "flagUrl": "https://en.wikipedia.org/wiki/Flag_of_France#/media/File:Flag_of_France.svg",
   "goal": "2014-10",
   "createdAt": "2022-04",
   "updatedAt": "2022-06"
@@ -36,7 +36,7 @@ content-type: application/json
 ###
 
 # @name DeletePost
-DELETE {{host}}/trips/8 HTTP/1.1
+DELETE {{host}}/trips/9 HTTP/1.1
 content-type: application/json
 
 ###

@@ -35,7 +35,7 @@ export class TripsService {
   } catch (QueryFailedError) {
 
     throw new HttpException(
-      `Já existe uma meta para ${newTrip.place} no país ${newTrip.country}, com meta para ${newTrip.goal}.`,
+      `Já existe uma meta para ${newTrip.place} no país ${newTrip.country}, inclusive com meta para ${newTrip.goal}.`,
       HttpStatus.BAD_REQUEST,
     )
   }
@@ -69,7 +69,4 @@ export class TripsService {
 
 }
 
-  function errorHandler() {
-    return 'nao da pra adicionar duplicado';
-  }
 

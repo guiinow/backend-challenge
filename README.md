@@ -5,7 +5,7 @@
 - Framework [NestJS](https://nestjs.com/)
 - [Typescript](https://www.typescriptlang.org/)
 - [TypeORM](https://typeorm.io/#/)
-- [Docker](https://www.docker.com/) para criação do banco de dados
+- [Docker](https://www.docker.com/) para criação do banco de dados Postgrees
 - Extensão [Rest client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) para execução das queries
 - [Swagger](https://swagger.io/), para documentação automática da api.
 
@@ -14,7 +14,7 @@
 
 Com este repositório clonado na sua máquina, entre no diretório raíz. 
 
-Com o docker instalado na maquina, rode o seguinte comando para se conectar ao banco de dados: `sudo docker run -e POSTGRES_USER=guiinow -e POSTGRES_PASSWORD=123456 -p 5432:5432 -d postgres:14.5`
+Com o docker instalado na maquina, rode o seguinte comando para rodar o container docker e, portanto, instalar o banco de dados: `sudo docker run -e POSTGRES_USER=guiinow -e POSTGRES_PASSWORD=123456 -p 5432:5432 -d postgres:14.5`
 
 Para rodar o servidor de desenvolvimento: `npm run start:dev`
 

@@ -17,6 +17,7 @@ Com este repositório clonado na sua máquina, entre no diretório raíz.
 Com o docker instalado na maquina, rode o seguinte comando para rodar o container docker e, portanto, instalar o banco de dados: `sudo docker run -e POSTGRES_USER=guiinow -e POSTGRES_PASSWORD=123456 -p 5432:5432 -d postgres:14.5`
 
 Para rodar o servidor de desenvolvimento: `npm run start:dev`
+Repare que é mandatório ter o ambiente nodejs intalado: node.js, npm e nestjs
 
 Agora a aplicação já estará rodando
 
